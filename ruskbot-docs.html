@@ -1,0 +1,177 @@
+<!DOCTYPE HTML>
+<!--
+	Dopetrope by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Ruskbot Docs</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="no-sidebar is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<section id="header">
+
+					<!-- Logo -->
+						<h1><a href="index.html">The Villainous Lair</a></h1>
+
+					<!-- Nav -->
+						<nav id="nav">
+							<ul>
+								<li><a href="index.html">Home</a></li>
+								<!--<li>
+									<a href="#">Dropdown</a>
+									<ul>
+										<li><a href="#">Lorem ipsum dolor</a></li>
+										<li><a href="#">Magna phasellus</a></li>
+										<li><a href="#">Etiam dolore nisl</a></li>
+										<li>
+											<a href="#">Phasellus consequat</a>
+											<ul>
+												<li><a href="#">Magna phasellus</a></li>
+												<li><a href="#">Etiam dolore nisl</a></li>
+												<li><a href="#">Veroeros feugiat</a></li>
+												<li><a href="#">Nisl sed aliquam</a></li>
+												<li><a href="#">Dolore adipiscing</a></li>
+											</ul>
+										</li>
+										<li><a href="#">Veroeros feugiat</a></li>
+									</ul>
+								</li>
+								<li><a href="left-sidebar.html">Left Sidebar</a></li>
+								<li><a href="right-sidebar.html">Right Sidebar</a></li>-->
+								<li class="current"><a href="ruskbot-docs.html">Ruskbot Docs</a></li>
+							</ul>
+						</nav>
+
+				</section>
+
+			<!-- Main -->
+				<section id="main">
+					<div class="container">
+
+						<!-- Content -->
+							<article class="box post">
+								<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
+								<header>
+									<h3>Ruskbot Documentation</h3>
+									<p>Information on Ruskbot and how to use her commands!</p>
+								</header>
+								<p>
+									Ruskbot is a discord bot programmed in Kotlin. Ruskbot helps me manage mod posts, and speeds up community tasks.
+									Ruskbot uses Kotlin Serialization to parse local data, and will automatically manage server resources as needed.<br /> <br />
+									
+									Notice: The original "Rusk" avatar was made by Komado, and can be found in its original form <a href="https://booth.pm/en/items/2559783">here.</a>
+									Komado does not endorse this bot. In this case, "Rusk" is just being used as a mascot for the bot in an unofficial capacity.<br /> <br />
+									
+									Some concepts to understand in how Ruskbot works on some features: 
+									<ul type="disc">
+									<li><b>Ruskbot runs on 1 minute ticks.</b></li>
+									<li>During these ticks, ruskbot will check for outdated information, and perform maintenance tasks.
+									<ul>
+									<li>Every 30 ticks, if the Deep Rock Galactic (DRG) information is out of date (based on when the deep dives reset), then Ruskbot will automatically query for more information on the tick.</li>
+									<li>Game servers will be checked to see if they're past due to reboot every tick, and if they are, they will begin a reboot sequence.</li>
+									</ul>
+									<li>Servers used to be tiered, but are no longer. Instead, each server comes with an estimated RAM usage based on observed max values, and game servers can be denied from being started if the estimated RAM the game server would use could max out the server's capacity.</li>
+								    </ul>
+								</p>
+								
+								<section>
+									<header>
+										<h3>Commands anyone can use:</h3>
+									</header>
+									<p>
+									   These are general commands that don't necessarily have a theme, and have no strong bearing on the operations of ruskbot.
+									</p>
+									<ul type="disc">
+									<li><b>/listservers</b> - sends a list of valid game server ids and their descriptions.</li>
+									<li><b>/checkserver</b> <i>(id)</i> - sends detailed information about the server on the server id provided.</li>
+									<li><b>/serverstatus</b> - sends information about the currently running servers, and available server slots.</li>
+									<li><b>/checkleaderboard</b> - sends the user a leaderboard of a running tally, if one exists. (Mostly used for Masquerade game nights.)</li>
+									<li><b>/rusk</b> - sends a rusk photo to the user.</li>
+									<li><b>/announcementoptin</b> - Opts a given channel into having embeds about mod updates posted. <i>REQUIRES USER TO HAVE THE MANAGE CHANNEL PERMISSION IN THE CHANNEL IT IS RAN IN.</i></li>
+									<LI><b>/announcementoptout</b> - Opts a given channel out of having embeds about mod updates posted. <i>REQUIRES USER TO HAVE THE MANAGE CHANNEL PERMISSION IN THE CHANNEL IT IS RAN IN.</i></li>
+									</ul>
+								</section>
+								<section>
+									<header>
+										<h3>Deep Rock Galactic Commands:</h3>
+									</header>
+									<p>
+										These commands can be used by anyone, but are more dedicated to the steam game Deep Rock Galactic.
+										Information for these commands are gathered from the <a href="https://drgapi.com/#/v1">DRG API.</a>
+									</p>
+									<ul type="disc">
+									<li><b>/drgdives</b> - sends information about the current deep dives. This information posts as a message everyone can see, and you only ever need one. If your information is out of date, cycling the message should update it. If it doesn't, contact Mari!</li>
+									<li><b>/rockandstone</b> - Ruskbot salutes you in deep rock fashion.</li>
+									<li><b>/drgtriva</b> - sends a random trivia fact about DRG.</li>
+									</ul>
+								</section>
+								<section>
+								   <header>
+										<h3>Limited Permission Commands</h3>
+									</header>
+									<p>
+										These commands can be used by a select few discord users. Permissions for these are distributed on a need-to-use basis.
+									</p>
+									<ul type="disc">
+									<li><b>/startserver</b> <i>(id)</i> - starts a game server based on the server ID, as defined in /listservers, if resources are available to do so. <i>If the selected server is already started</i> then a reboot prompt will appear. This is only to be used when the server is flagged as online, but is inaccessible.</li>
+									<li><b>/stopserver</b> <i>(id)</i> - stops a game server based on the server ID, as defined in /listservers.</li>
+									<li><b>/serverlistener</b> <i>(id)</i> - Sets up a listener message in the current channel, that displays the status of the selected server. Only one status message can be tracked at a time per game server.
+									<li><b>/setuptally</b> - sets up a tally to keep score, reading from a seshbot post to do so.</li>
+									<ul type="square">
+									<li>channelid - The id of the channel the seshbot post to read from is in.</li>
+									<li>messageid - The id of the message seshbot made that you want ruskbot to read.</li>
+									<li>usercategory1 - The name of the first sign up role you want ruskbot to read from.</li>
+									<li>usercategory2 - The name of the second sign up role you want ruskbot to read from.</li>
+									<li>usercategory3 - The name of the third sign up role you want ruskbot to read from.</li>
+									<li>winningtext - describes what the tally is for. Defaults to "MONARCH OF MADNESS" for Masquerade gamenights.</li>
+									<li>channel - A discord channel to announce the start of the tally to.</li>
+									</ul>
+									<li><b>/completetally</b> - ends a tally count, and declares winners or ties for winning.</li>
+									<li><b>/addreactvote</b> <i>(messageid)</i> - adds a "yes", "no", and "idk" reaction vote to the given message.</li>
+									<li><b>/announcelobby</b> - allows for preconfigured announcements of lobbies for events being opened for events through a dropdown menu.</li>
+									<li><b>/say</b> <i>(message)</i> <i>(channel)</i> - makes Ruskbot say something in your current channel, or if optionally defined, the channel listed.
+									<li><b>/drgquery</b> - manually queries the DRGAPI for updated information.
+									</ul>
+								</section>
+							</article>
+
+					</div>
+				</section>
+
+			<!-- Footer -->
+				<section id="footer">
+					<div class="container">
+						<div class="row">
+							<div class="col-12">
+
+								<!-- Copyright -->
+									<div id="copyright">
+										<ul class="links">
+											<li>&copy; Cartoonish Villain. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+										</ul>
+									</div>
+
+							</div>
+						</div>
+					</div>
+				</section>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
